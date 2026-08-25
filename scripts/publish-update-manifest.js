@@ -1,96 +1,79 @@
-name: Spectra güncellemesini yayınla
+const crypto = require('crypto')
+const fs = require('fs')
+const path = require('path')
 
-on:
-  release:
-    types: [published]
+const EXPECTED_PUBLIC_KEY_SHA256 = 'dfd884c49270e1163a9800527f077198cf3a8f71e76ef0275a95d692c411baaa'
+const args = process.argv.slice(2)
+const value = name => {
+  const index = args.indexOf(`--${name}`)
+  return index >= 0 ? String(args[index + 1] || '').trim() : ''
+}
+const required = name => {
+  const result = value(name)
+  if (!result) throw new Error(`--${name} gerekli`)
+  return result
+}
+const resolveFile = name => path.resolve(required(name))
 
-permissions:
-  contents: write
+function releaseNotes(file) {
+  if (!file || !fs.existsSync(file)) return ['Performans, güvenlik ve kararlılık iyileştirmeleri.']
+  const notes = fs.readFileSync(file, 'utf8')
+    .split(/\r?\n/)
+    .map(line => line.trim().replace(/^#{1,6}\s*/, '').replace(/^[-*+]\s+/, ''))
+    .filter(line => line && !/^```/.test(line))
+    .slice(0, 40)
+  return notes.length ? notes : ['Performans, güvenlik ve kararlılık iyileştirmeleri.']
+}
 
-concurrency:
-  group: spectra-stable-update
-  cancel-in-progress: false
+function main() {
+  const version = required('version')
+  const download = required('download')
+  const installer = resolveFile('installer')
+  const privateKeyPath = resolveFile('private-key')
+  const output = resolveFile('out')
+  if (!/^\d+\.\d+\.\d+$/.test(version)) throw new Error('Sürüm 2.0.0 biçiminde olmalıdır')
+  if (!/^https:\/\//i.test(download) || /[\[\]()]/.test(download)) throw new Error('İndirme adresi normal bir HTTPS adresi olmalıdır')
+  if (!fs.existsSync(installer)) throw new Error(`Kurucu bulunamadı: ${installer}`)
+  if (!fs.existsSync(privateKeyPath)) throw new Error(`İmzalama anahtarı bulunamadı: ${privateKeyPath}`)
 
-jobs:
-  publish-manifest:
-    runs-on: windows-latest
-    steps:
-      - name: Ana dalı al
-        uses: actions/checkout@v4
-        with:
-          ref: main
-          fetch-depth: 0
+  const privateKey = fs.readFileSync(privateKeyPath, 'utf8')
+  const publicDer = crypto.createPublicKey(privateKey).export({ type:'spki', format:'der' })
+  const fingerprint = crypto.createHash('sha256').update(publicDer).digest('hex')
+  if (fingerprint !== EXPECTED_PUBLIC_KEY_SHA256) throw new Error('İmzalama anahtarı bu Spectra sürümünün güncelleme anahtarıyla eşleşmiyor')
 
-      - name: Node.js kur
-        uses: actions/setup-node@v4
-        with:
-          node-version: 24
+  const sha256 = crypto.createHash('sha256').update(fs.readFileSync(installer)).digest('hex')
+  const manifest = {
+    version,
+    channel:'stable',
+    download,
+    sha256,
+    changelog:releaseNotes(value('notes-file')),
+    schemaVersion:1,
+    product:'Spectra',
+  }
+  const payload = Buffer.from(JSON.stringify(manifest)).toString('base64url')
+  const signature = crypto.sign(null, Buffer.from(payload), privateKey).toString('base64url')
+  const transition = {
+    version:manifest.version,
+    channel:manifest.channel,
+    download:manifest.download,
+    sha256:manifest.sha256,
+    changelog:manifest.changelog,
+    payload,
+    signature,
+  }
+  fs.mkdirSync(path.dirname(output), { recursive:true })
+  fs.writeFileSync(output, JSON.stringify(transition, null, 2) + '\n', { encoding:'utf8', mode:0o600 })
 
-      - name: Release bilgilerini doğrula ve kurucuyu indir
-        shell: pwsh
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          RELEASE_TAG: ${{ github.event.release.tag_name }}
-          RELEASE_ID: ${{ github.event.release.id }}
-          RELEASE_NOTES: ${{ github.event.release.body }}
-        run: |
-          if ($env:RELEASE_TAG -notmatch '^v(\d+\.\d+\.\d+)$') {
-            throw "Release etiketi v2.0.0 biçiminde olmalıdır: $env:RELEASE_TAG"
-          }
-          $version = $Matches[1]
-          $assetName = "Spectra-Setup-v$version-x64.exe"
-          $release = gh api "repos/$env:GITHUB_REPOSITORY/releases/$env:RELEASE_ID" | ConvertFrom-Json
-          if ($LASTEXITCODE -ne 0) { throw 'GitHub Release bilgisi okunamadı.' }
-          $asset = $release.assets | Where-Object { $_.name -eq $assetName } | Select-Object -First 1
-          if (-not $asset) {
-            throw "Release içinde beklenen kurucu yok: $assetName"
-          }
-          New-Item -ItemType Directory -Force -Path '.release-artifacts' | Out-Null
-          gh release download $env:RELEASE_TAG --pattern $assetName --dir '.release-artifacts' --clobber
-          if ($LASTEXITCODE -ne 0) { throw 'Kurucu GitHub Release üzerinden indirilemedi.' }
-          [IO.File]::WriteAllText((Join-Path $env:RUNNER_TEMP 'spectra-release-notes.txt'), [string]$env:RELEASE_NOTES, [Text.UTF8Encoding]::new($false))
-          "SPECTRA_VERSION=$version" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
-          "SPECTRA_ASSET_NAME=$assetName" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
-          "SPECTRA_DOWNLOAD_URL=$($asset.browser_download_url)" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+  const decoded = JSON.parse(Buffer.from(payload, 'base64url').toString('utf8'))
+  const valid = crypto.verify(null, Buffer.from(payload), crypto.createPublicKey(privateKey), Buffer.from(signature, 'base64url'))
+  if (!valid || decoded.sha256 !== sha256 || decoded.version !== version) throw new Error('Oluşturulan manifest son doğrulamadan geçmedi')
+  console.log(`Güncelleme manifesti hazır: v${version}`)
+  console.log(`Kurucu SHA-256: ${sha256}`)
+}
 
-      - name: Güncelleme imzalama anahtarını hazırla
-        shell: pwsh
-        env:
-          UPDATE_PRIVATE_KEY_B64: ${{ secrets.SPECTRA_UPDATE_PRIVATE_KEY_B64 }}
-        run: |
-          if ([string]::IsNullOrWhiteSpace($env:UPDATE_PRIVATE_KEY_B64)) {
-            throw 'SPECTRA_UPDATE_PRIVATE_KEY_B64 GitHub Actions sırrı tanımlanmamış.'
-          }
-          try {
-            $bytes = [Convert]::FromBase64String($env:UPDATE_PRIVATE_KEY_B64)
-          } catch {
-            throw 'SPECTRA_UPDATE_PRIVATE_KEY_B64 geçerli Base64 değil.'
-          }
-          $keyPath = Join-Path $env:RUNNER_TEMP 'spectra-update-private.pem'
-          [IO.File]::WriteAllBytes($keyPath, $bytes)
-          "SPECTRA_PRIVATE_KEY_PATH=$keyPath" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+try { main() } catch (error) {
+  console.error(`HATA: ${error.message}`)
+  process.exitCode = 1
+}
 
-      - name: İmzalı geçiş manifestini oluştur
-        shell: pwsh
-        run: |
-          node scripts/publish-update-manifest.js `
-            --version $env:SPECTRA_VERSION `
-            --installer ".release-artifacts\$env:SPECTRA_ASSET_NAME" `
-            --download $env:SPECTRA_DOWNLOAD_URL `
-            --notes-file "$env:RUNNER_TEMP\spectra-release-notes.txt" `
-            --private-key $env:SPECTRA_PRIVATE_KEY_PATH `
-            --out update-stable.json
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-
-      - name: Manifesti ana dala gönder
-        shell: pwsh
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -- update-stable.json
-          if (git diff --cached --quiet) {
-            Write-Host 'Manifest zaten güncel.'
-            exit 0
-          }
-          git commit -m "Yayın manifestini v$env:SPECTRA_VERSION sürümüne güncelle"
-          git push origin HEAD:main
