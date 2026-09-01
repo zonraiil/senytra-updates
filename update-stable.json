@@ -1,7 +1,7 @@
 {
   "version": "1.3.0",
   "channel": "stable",
-  "download": "https://github.com/spectra-lab1/spectra-updates/releases/download/v1.3.0/Spectra-v1.3.0-x64.exe",
+  "download": "https://github.com/zonraiil/senytra-updates/releases/download/v2.0.0/Senytra-Setup-v2.0.0-x64.exe",
 "changelog": [
   "Spectra 2.0, bugüne kadar yayımladığımız en büyük güncelleme.",
   "Bu sürümde yalnızca arayüzü değiştirmedik. Spectra'nın işlem motoru, performans sistemleri, güvenlik katmanı, geri alma altyapısı ve kullanıcı deneyimi baştan aşağıya yenilendi.",
