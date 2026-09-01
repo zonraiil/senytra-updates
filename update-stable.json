@@ -13,24 +13,6 @@
   "FPS, kare süresi, 1% low, 0.1% low ve takılma ölçümleri yeniden ele alındı.",
   "Değişikliklerin performansa etkisini önce ve sonra karşılaştıran doğrulama altyapısı geliştirildi.",
   "İşlemci, ekran kartı, RAM, disk, yenileme hızı ve PCIe bağlantısı için darboğaz kontrolleri eklendi.",
-  "NVIDIA ve AMD ekran kartları için donanım algılama ve performans desteği geliştirildi.",
-  "Fan Merkezi yeniden düzenlendi. Desteklenen fanlarda sıcaklık, profil ve güvenli geri alma davranışı geliştirildi.",
-  "Aydınlatma Merkezi ve OpenRGB desteği geliştirildi.",
-  "Spectra Otopilot sadeleştirildi ve güvenli otomatik bakım sistemi yenilendi.",
-  "Sistem Temizleyici yeniden geliştirildi. Her kategorinin işlem durumu ayrı gösteriliyor.",
-  "Spectra Debloat ve Windows uygulaması kaldırma sistemi geliştirildi.",
-  "Başlangıç Yöneticisi, RAM Yönetimi, güç planları ve sistem araçları yeniden düzenlendi.",
-  "Windows Yapay Zekâ ve Gizlilik merkezi eklendi. Copilot, Cortana, Recall, Bing araması, etkinlik geçmişi, reklam kimliği ve tanılama ayarları tek merkezden yönetilebiliyor.",
-  "Spectra Pro araçları kullanım alanlarına göre yeniden gruplandırıldı.",
-  "Spectra Chibi'nin hareketleri, oyun tepkileri, konuşmaları ve masaüstü davranışları geliştirildi.",
-  "Türkçe ve İngilizce dil desteği kapsamlı şekilde düzeltildi.",
-  "İlk kurulum ekranı ve geri yükleme noktası akışı yenilendi.",
-  "Kurucu ve kaldırıcı standart Electron NSIS altyapısına geçirildi.",
-  "Güncelleme sistemi eski ve yeni Spectra sürümleriyle uyumlu, imzalı bir yapıya geçirildi.",
-  "Yedekleme, geri yükleme ve işlem doğrulama sistemleri güçlendirildi.",
-  "Açılış süresi, animasyon akıcılığı ve genel arayüz performansı iyileştirildi.",
-  "Çok sayıda uygulanmayan ayar, yanlış durum göstergesi, geri alma ve arayüz hatası giderildi.",
-  "Spectra 2.0, eski sürümün üzerine kurulabilir. Kişisel Spectra ayarları ve güvenli işlem kayıtları mümkün olduğu sürece korunur.",
-  "Bu sürüm, Spectra'nın yeni temelidir."
+  "NVIDIA ve AMD ekran kartları için donanım algılama ve performans desteği geliştirildi."
 ]
 }
