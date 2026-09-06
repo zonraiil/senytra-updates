@@ -1,5 +1,5 @@
 {
-  "version": "1.3.0",
+  "version": "2.0.0",
   "channel": "stable",
   "download": "https://github.com/zonraiil/senytra-updates/releases/download/v2.0.0/Senytra-Setup-v2.0.0-x64.exe",
 "changelog": [
@@ -13,6 +13,5 @@
   "FPS, kare süresi, 1% low, 0.1% low ve takılma ölçümleri yeniden ele alındı.",
   "Değişikliklerin performansa etkisini önce ve sonra karşılaştıran doğrulama altyapısı geliştirildi.",
   "İşlemci, ekran kartı, RAM, disk, yenileme hızı ve PCIe bağlantısı için darboğaz kontrolleri eklendi.",
-  "NVIDIA ve AMD ekran kartları için donanım algılama ve performans desteği geliştirildi."
 ]
 }
