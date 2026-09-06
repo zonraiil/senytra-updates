@@ -12,6 +12,6 @@
   "Oyun algılama, oyun profilleri ve oyun sırasında uygulanan performans işlemleri geliştirildi.",
   "FPS, kare süresi, 1% low, 0.1% low ve takılma ölçümleri yeniden ele alındı.",
   "Değişikliklerin performansa etkisini önce ve sonra karşılaştıran doğrulama altyapısı geliştirildi.",
-  "İşlemci, ekran kartı, RAM, disk, yenileme hızı ve PCIe bağlantısı için darboğaz kontrolleri eklendi.",
+  "İşlemci, ekran kartı, RAM, disk, yenileme hızı ve PCIe bağlantısı için darboğaz kontrolleri eklendi."
 ]
 }
