@@ -2,6 +2,18 @@
 
 Bu depo, **Senytra** uygulamasının otomatik güncelleme sistemi için kullanılmaktadır.
 
+## Basit yayın akışı
+
+1. `v2.3.0` biçiminde bir release yayımlayın ve
+   `Senytra-Setup-v2.3.0-x64.exe` dosyasını ekleyin.
+2. `update-stable.json` içinde yalnızca `version` ve `changelog` alanlarını
+   düzenleyip kaydedin.
+3. GitHub Actions indirme adresini ve SHA-256 değerini release üzerinden bulur;
+   `payload` ve `signature` alanlarını otomatik yeniler.
+
+`payload`, `signature`, `download` ve `sha256` alanlarını elle değiştirmeyin.
+Actions sayfasındaki yayın işi yeşil olduğunda güncelleme uygulamaya ulaşır.
+
 Burada bulunan dosyalar:
 
 - Stable güncelleme bilgileri

@@ -3,6 +3,10 @@ name: Senytra güncellemesini yayınla
 on:
   release:
     types: [published]
+  push:
+    branches: [main]
+    paths:
+      - update-stable.json
   workflow_dispatch:
     inputs:
       release_tag:
@@ -36,24 +40,41 @@ jobs:
         shell: pwsh
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          RELEASE_TAG: ${{ github.event.release.tag_name || inputs.release_tag }}
+          EVENT_NAME: ${{ github.event_name }}
+          REQUESTED_TAG: ${{ github.event.release.tag_name || inputs.release_tag }}
           RELEASE_NOTES: ${{ github.event.release.body }}
         run: |
-          if ($env:RELEASE_TAG -notmatch '^v(\d+\.\d+\.\d+)$') {
-            throw "Release etiketi v2.0.0 biçiminde olmalıdır: $env:RELEASE_TAG"
+          if ($env:EVENT_NAME -eq 'push') {
+            try {
+              $draft = Get-Content -LiteralPath 'update-stable.json' -Raw | ConvertFrom-Json
+            } catch {
+              throw 'update-stable.json geçerli JSON değil.'
+            }
+            $draftVersion = [string]$draft.version
+            if ($draftVersion -notmatch '^\d+\.\d+\.\d+$') {
+              throw 'update-stable.json içindeki version 2.0.0 biçiminde olmalıdır.'
+            }
+            $releaseTag = "v$draftVersion"
+            $draftNotes = @($draft.changelog | ForEach-Object { [string]$_ }) -join "`n"
+          } else {
+            $releaseTag = [string]$env:REQUESTED_TAG
+            $draftNotes = [string]$env:RELEASE_NOTES
+          }
+          if ($releaseTag -notmatch '^v(\d+\.\d+\.\d+)$') {
+            throw "Release etiketi v2.0.0 biçiminde olmalıdır: $releaseTag"
           }
           $version = $Matches[1]
           $assetName = "Senytra-Setup-v$version-x64.exe"
-          $release = gh api "repos/$env:GITHUB_REPOSITORY/releases/tags/$env:RELEASE_TAG" | ConvertFrom-Json
+          $release = gh api "repos/$env:GITHUB_REPOSITORY/releases/tags/$releaseTag" | ConvertFrom-Json
           if ($LASTEXITCODE -ne 0) { throw 'GitHub Release bilgisi okunamadı.' }
           $asset = $release.assets | Where-Object { $_.name -eq $assetName } | Select-Object -First 1
           if (-not $asset) {
             throw "Release içinde beklenen kurucu yok: $assetName"
           }
           New-Item -ItemType Directory -Force -Path '.release-artifacts' | Out-Null
-          gh release download $env:RELEASE_TAG --pattern $assetName --dir '.release-artifacts' --clobber
+          gh release download $releaseTag --pattern $assetName --dir '.release-artifacts' --clobber
           if ($LASTEXITCODE -ne 0) { throw 'Kurucu GitHub Release üzerinden indirilemedi.' }
-          $notes = if ([string]::IsNullOrWhiteSpace($env:RELEASE_NOTES)) { [string]$release.body } else { [string]$env:RELEASE_NOTES }
+          $notes = if ([string]::IsNullOrWhiteSpace($draftNotes)) { [string]$release.body } else { $draftNotes }
           [IO.File]::WriteAllText((Join-Path $env:RUNNER_TEMP 'senytra-release-notes.txt'), $notes, [Text.UTF8Encoding]::new($false))
           "SENYTRA_VERSION=$version" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
           "SENYTRA_ASSET_NAME=$assetName" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
