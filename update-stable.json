@@ -1,17 +1,18 @@
 {
-  "version": "2.0.0",
+  "version": "2.1.0",
   "channel": "stable",
-  "download": "https://github.com/zonraiil/senytra-updates/releases/download/v2.0.0/Senytra-Setup-v2.0.0-x64.exe",
+  "download": "https://github.com/zonraiil/senytra-updates/releases/download/v2.1.0/Senytra-Setup-v2.1.0-x64.exe",
 "changelog": [
-  "Spectra 2.0, bugüne kadar yayımladığımız en büyük güncelleme.",
-  "Bu sürümde yalnızca arayüzü değiştirmedik. Spectra'nın işlem motoru, performans sistemleri, güvenlik katmanı, geri alma altyapısı ve kullanıcı deneyimi baştan aşağıya yenilendi.",
-  "Spectra'nın bütün arayüzü ve sayfa düzeni yeniden hazırlandı.",
-  "İnce Ayarlar sistemi yenilendi. Değişiklikler uygulanmadan önce mevcut durum okunuyor, işlem sonrasında doğrulanıyor ve gerektiğinde gerçek önceki değere geri dönülüyor.",
-  "Desteklenmeyen ayarlar artık hata vermek yerine neden kullanılamadığını açıklıyor.",
-  "Spectra Intelligence donanım, Windows ve performans sorunlarını daha anlaşılır şekilde değerlendiriyor.",
-  "Oyun algılama, oyun profilleri ve oyun sırasında uygulanan performans işlemleri geliştirildi.",
-  "FPS, kare süresi, 1% low, 0.1% low ve takılma ölçümleri yeniden ele alındı.",
-  "Değişikliklerin performansa etkisini önce ve sonra karşılaştıran doğrulama altyapısı geliştirildi.",
-  "İşlemci, ekran kartı, RAM, disk, yenileme hızı ve PCIe bağlantısı için darboğaz kontrolleri eklendi."
+"Senytra Eşik eklendi. Gerçek zamanlı 3D sahne üzerinde iki farklı sistem ayarı 1 ve 2 olarak karşılaştırılıyor.",
+"Eşik testi FPS ve kare süresini ölçüyor. Kullanıcı tercih yapabiliyor; fark hissedilmezse Spectra ölçüm sonuçlarına göre daha iyi seçeneği öneriyor. Seçim açık onay verilmeden kalıcı hâle getirilmiyor.",
+"Desteklenen AMD ve NVIDIA ekran kartları için kontrollü otomatik GPU ayarlama sistemi eklendi. Kararlılık, sıcaklık ve ölçüm verileri uygun olmadığında işlem durduruluyor ve önceki ayara dönülüyor.",
+"SenytraNet Kalkanı’nın kurulum, başlatma ve onarım akışları düzeltildi. Bileşen bütünlüğü ve Windows hizmetinin gerçek çalışma durumu artık ayrıca doğrulanıyor.",
+"Ayarları açarken ve kapatırken oluşan uzun beklemeler giderildi. Gereksiz tekrar okumalar kaldırıldı ve ayarlar doğrulama korunarak tek tıklık akışa geçirildi.",
+"‘Tümünü geri al’ işleminin sırası düzeltildi. Değişiklikler artık uygulanma sırasının tersine göre geri alınıyor.",
+"Etkin değişikliklere ait yedeklerin otomatik temizlik sırasında silinebilmesine neden olan hata giderildi. Yalnızca tamamen geri alınmış ve doğrulanmış yedekler temizlenebiliyor.",
+"Kurulu Spectra dosyalarının standart kullanıcılar tarafından değiştirilebilmesine neden olan izin sorunu giderildi. Kurulum sırasında dosya izinleri güvenli şekilde uygulanıyor ve doğrulanıyor.",
+"‘Bu uyarıyı bir daha gösterme’ seçeneğinin tekrar uyarı göstermesine neden olan hata giderildi. Tercih artık uygulama yeniden açıldığında da korunuyor.",
+"Windows Debloat’ın kritik Windows uygulamalarını topluca seçmesine neden olan hata düzeltildi. Yalnızca güvenli ve yeniden kurulabilir gereksiz uygulamalar otomatik seçiliyor.",
+"OneDrive, Windows Debloat içinde koruma altına alındı. Arayüzden seçilemiyor ve doğrudan kaldırma isteği gönderilse bile işlem motoru tarafından reddediliyor."
 ]
 }
