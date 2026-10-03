@@ -1,14 +1,12 @@
 {
-  "version": "2.2.0",
+  "version": "2.3.0",
   "channel": "stable",
-  "download": "https://github.com/zonraiil/senytra-updates/releases/download/v2.2.0/Senytra-Setup-v2.2.0-x64.exe",
-  "sha256": "a60e4a4317c3ebcc4379dab9a83b4f3c11be8267214928e903405a43a21f6e2a",
+  "download": "https://github.com/zonraiil/senytra-updates/releases/download/v2.3.0/Senytra-Setup-v2.3.0-x64.exe",
+  "sha256": "a847bbbbfbfafb003d08bb5f34be527e0ed9eec692b5edbf53f77a3323c3dde1",
   "changelog": [
-    "**SENYTRA BUG FİX**",
-    "Performans sorunları giderildi",
-    "GitHub güncellemesindeki dosya adı ve 404 manifest hatası düzeltildi.",
-    "Güncelleme penceresinin ekrandan taşması giderildi. Sürüm notları kayıyor düğmeler görünür kalıyor ve çıkılabiliyor."
+    "SENYTRA ELECTRON UPDATE",
+    "Senytra en yeni Electron versiyonuna yükseltildi."
   ],
-  "payload": "eyJ2ZXJzaW9uIjoiMi4yLjAiLCJjaGFubmVsIjoic3RhYmxlIiwiZG93bmxvYWQiOiJodHRwczovL2dpdGh1Yi5jb20vem9ucmFpaWwvc2VueXRyYS11cGRhdGVzL3JlbGVhc2VzL2Rvd25sb2FkL3YyLjIuMC9TZW55dHJhLVNldHVwLXYyLjIuMC14NjQuZXhlIiwic2hhMjU2IjoiYTYwZTRhNDMxN2MzZWJjYzQzNzlkYWI5YTgzYjRmM2MxMWJlODI2NzIxNDkyOGU5MDM0MDVhNDNhMjFmNmUyYSIsImNoYW5nZWxvZyI6WyIqKlNFTllUUkEgQlVHIEbEsFgqKiIsIlBlcmZvcm1hbnMgc29ydW5sYXLEsSBnaWRlcmlsZGkiLCJHaXRIdWIgZ8O8bmNlbGxlbWVzaW5kZWtpIGRvc3lhIGFkxLEgdmUgNDA0IG1hbmlmZXN0IGhhdGFzxLEgZMO8emVsdGlsZGkuIiwiR8O8bmNlbGxlbWUgcGVuY2VyZXNpbmluIGVrcmFuZGFuIHRhxZ9tYXPEsSBnaWRlcmlsZGkuIFPDvHLDvG0gbm90bGFyxLEga2F5xLF5b3IgZMO8xJ9tZWxlciBnw7Zyw7xuw7xyIGthbMSxeW9yIHZlIMOnxLFrxLFsYWJpbGl5b3IuIl0sInNjaGVtYVZlcnNpb24iOjEsInByb2R1Y3QiOiJTZW55dHJhIn0",
-  "signature": "V-XBNm2mN19n9ly8f7GBjcSzzATKtHFxr-EDCDnjTMKULUZXTVIFFyPhLJIwZiKdao5GJ8WbAzxWJYdVpLwfBw"
+  "payload": "eyJ2ZXJzaW9uIjoiMi4zLjAiLCJjaGFubmVsIjoic3RhYmxlIiwiZG93bmxvYWQiOiJodHRwczovL2dpdGh1Yi5jb20vem9ucmFpaWwvc2VueXRyYS11cGRhdGVzL3JlbGVhc2VzL2Rvd25sb2FkL3YyLjMuMC9TZW55dHJhLVNldHVwLXYyLjMuMC14NjQuZXhlIiwic2hhMjU2IjoiYTg0N2JiYmJmYmZhZmIwMDNkMDhiYjVmMzRiZTUyN2UwZWQ5ZWVjNjkyYjVlZGJmNTNmNzdhMzMyM2MzZGRlMSIsImNoYW5nZWxvZyI6WyJTRU5ZVFJBIEVMRUNUUk9OIFVQREFURSIsIlNlbnl0cmEgZW4geWVuaSBFbGVjdHJvbiB2ZXJzaXlvbnVuYSB5w7xrc2VsdGlsZGkuIl0sInNjaGVtYVZlcnNpb24iOjEsInByb2R1Y3QiOiJTZW55dHJhIn0",
+  "signature": "5YpbXwx2isR2PA8KqOyjbRvpRmXTUgucMCJR_jHp9B2OeXg892I2D5MKvfm0RrdMYFDplnee92FubO1ugZ4YDg"
 }
