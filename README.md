@@ -27,7 +27,7 @@ Yeni bir sürüm bulunduğunda kullanıcıya bildirilir ve güncelleme doğrudan
 
 ## 🌐 Senytra
 
-Spectra, Windows için geliştirilmiş modern bir sistem optimizasyon ve performans yönetim uygulamasıdır.
+Senytra, Windows için geliştirilmiş modern bir sistem optimizasyon ve performans yönetim uygulamasıdır.
 
 Öne çıkan özellikler:
 
