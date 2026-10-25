@@ -97,15 +97,37 @@ jobs:
           [IO.File]::WriteAllBytes($keyPath, $bytes)
           "SENYTRA_PRIVATE_KEY_PATH=$keyPath" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
 
+      # Yalnız güncelleme için ayrılmış anahtar. 2.5.1 ve sonrası bu imzayı doğrular.
+      # Sır henüz eklenmediyse manifest eskisi gibi yalnız eski anahtarla imzalanır.
+      - name: Ayrı güncelleme anahtarını hazırla
+        shell: pwsh
+        env:
+          UPDATE_SIGNING_KEY_B64: ${{ secrets.SENYTRA_UPDATE_SIGNING_KEY_B64 }}
+        run: |
+          if ([string]::IsNullOrWhiteSpace($env:UPDATE_SIGNING_KEY_B64)) {
+            Write-Warning 'SENYTRA_UPDATE_SIGNING_KEY_B64 tanımlı değil; manifest yalnız eski anahtarla imzalanacak.'
+            exit 0
+          }
+          try {
+            $bytes = [Convert]::FromBase64String($env:UPDATE_SIGNING_KEY_B64)
+          } catch {
+            throw 'Ayrı güncelleme anahtarı geçerli Base64 değil.'
+          }
+          $keyPath = Join-Path $env:RUNNER_TEMP 'senytra-update-signing.pem'
+          [IO.File]::WriteAllBytes($keyPath, $bytes)
+          "SENYTRA_UPDATE_SIGNING_KEY_PATH=$keyPath" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+
       - name: İmzalı geçiş manifestini oluştur
         shell: pwsh
         run: |
+          $signing = @('--private-key', $env:SENYTRA_PRIVATE_KEY_PATH)
+          if ($env:SENYTRA_UPDATE_SIGNING_KEY_PATH) { $signing += @('--update-private-key', $env:SENYTRA_UPDATE_SIGNING_KEY_PATH) }
           node scripts/publish-update-manifest.js `
             --version $env:SENYTRA_VERSION `
             --installer ".release-artifacts\$env:SENYTRA_ASSET_NAME" `
             --download $env:SENYTRA_DOWNLOAD_URL `
             --notes-file "$env:RUNNER_TEMP\senytra-release-notes.txt" `
-            --private-key $env:SENYTRA_PRIVATE_KEY_PATH `
+            @signing `
             --out update-stable.json
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
