@@ -1,40 +1,14 @@
 {
-  "version": "2.5.1",
+  "version": "2.5.2",
   "channel": "stable",
-  "download": "https://github.com/zonraiil/senytra-updates/releases/download/v2.5.1/Senytra-Setup-v2.5.1-x64.exe",
-  "sha256": "735ce4288cb5081ac0ae03dfc9b89b71cc60515c0592fb877478c4133af812e9",
+  "download": "https://github.com/zonraiil/senytra-updates/releases/download/v2.5.2/Senytra-Setup-v2.5.2-x64.exe",
+  "sha256": "dddc9a0d50a76aa813eb59b0651df902c41086d5cd752be4e77d4e8569dfb341",
   "changelog": [
-    "Cadılar Bayramı teması: mürdüm gecesi ve kabak turuncusu. Görünüm sayfasından ya da 1 Kasım'a kadar Ana Panel'deki davetten tek tıkla açılır, istenirse önceki temaya dönülür.",
-    "Yeni puan efekti Bal Kabağı: puan halkası mum ışığında yanan bir kabağa dönüşür, alevin rengi ve titremesi sistem sağlığını izler.",
-    "Cadılar Bayramı temasında Sistem Durumu kartlarında küçük yarasalar var, sayfa değiştirince de bir yarasa sürüsü uçup kaybolur. Hareketi azalt açıkken uçmazlar.",
-    "Yeni Hızlandır sayfası (ücretsiz): Senytra bilgisayarını okur, işe yaradığı bilinen ve henüz uygulanmamış ayarları listeler. Sen seçersin, her değişiklik yedeklenir ve Windows'tan geri okunarak doğrulanır.",
-    "Hızlandır önce ve sonra ölçüm gösterir, uygulanan ayarların yeniden başlatmadan sonra da yerinde olup olmadığını kontrol eder.",
-    "Senytra Intelligence'a Derin Teşhis eklendi: disk, bellek, işlemci, sürücü ve arka plan yükünü ölçüp yavaşlığın en olası nedenini gösterir.",
-    "Akıllı öneriler artık açık kalan gereksiz servisleri, uygulanmamış önerilen ince ayarları ve ölçülen yavaşlık nedenini de gösterir.",
-    "AMD ekran kartı desteği: kart doğru tanınır, ana panelde ve Termal Profil'de sıcaklık, güç ve kullanım gösterilir.",
-    "Güncellemeler sayfası AMD kartlarda Adrenalin sürümünü gösterir. RX 400/500 ve Vega kartlar için eski kart sürücü kolu notu eklendi.",
-    "Ekran Kartı Performansı'na AMD Radeon kartı eklendi: ReLive kaydı, AMD veri toplama, otomatik güncelleme görevleri ve açılışta başlama kapatılabilir, hepsi yedekli.",
-    "Adrenalin için önerilen oyun ayarları listesi eklendi.",
-    "HAGS önerisi artık desteklemeyen ekran kartlarında gösterilmiyor.",
-    "Game Booster yeni Riot Client'ı oyun sanıyordu, düzeltildi.",
-    "Game Booster hile korumalı bir süreçte \"kurtarma gerekli\" uyarısında takılı kalıyordu, düzeltildi.",
-    "Antivirüs koruması kapalı uyarısı artık yok sayılabilir.",
-    "Sağlık puanının arkasına yeni efektler: Nabız, Petek ve Atom. Görünüm ayarlarından ve ilk kurulumda seçilebilir.",
-    "Sağ üstteki kullanıcı kartı yenilendi.",
-    "Otomatik Tek Tık ekranı sadeleşti, ayrıntılar Gelişmiş ayarlar altında.",
-    "Yeni ince ayarlar: pencere animasyonları, saydamlık efektleri ve Windows Arama'nın klasik dizinlemesi.",
-    "Telemetri ince ayarı uygulandığı halde uygulanmadı görünüyordu, düzeltildi.",
-    "Arayüz metinlerinde gereksiz noktalı virgüller kaldırıldı.",
-    "Atom efektinin yörüngeleri puan kartından taşıp kesiliyordu, düzeltildi.",
-    "Hızlandır sayfasında bellek, takılı miktar olarak gösterilir (15.8 GB yerine 16 GB).",
-    "Game Booster, hile korumalı bir süreçte güç modu ve çekirdek ataması geri yüklenemediğinde de takılı kalıyordu, düzeltildi. Bu ayarlar süreç kapanınca kendiliğinden sıfırlanır.",
-    "Güvenlik: Electron 44.9.3 güvenlik yaması.",
-    "Güvenlik: güncellemeler artık lisanstan ayrı bir anahtarla imzalanıyor.",
-    "Güvenlik: program kodu karartılarak korunuyor."
+    "Senytra hotfix"
   ],
-  "payload": "eyJ2ZXJzaW9uIjoiMi41LjEiLCJjaGFubmVsIjoic3RhYmxlIiwiZG93bmxvYWQiOiJodHRwczovL2dpdGh1Yi5jb20vem9ucmFpaWwvc2VueXRyYS11cGRhdGVzL3JlbGVhc2VzL2Rvd25sb2FkL3YyLjUuMS9TZW55dHJhLVNldHVwLXYyLjUuMS14NjQuZXhlIiwic2hhMjU2IjoiNzM1Y2U0Mjg4Y2I1MDgxYWMwYWUwM2RmYzliODliNzFjYzYwNTE1YzA1OTJmYjg3NzQ3OGM0MTMzYWY4MTJlOSIsImNoYW5nZWxvZyI6WyJDYWTEsWxhciBCYXlyYW3EsSB0ZW1hc8SxOiBtw7xyZMO8bSBnZWNlc2kgdmUga2FiYWsgdHVydW5jdXN1LiBHw7Zyw7xuw7xtIHNheWZhc8SxbmRhbiB5YSBkYSAxIEthc8SxbSdhIGthZGFyIEFuYSBQYW5lbCdkZWtpIGRhdmV0dGVuIHRlayB0xLFrbGEgYcOnxLFsxLFyLCBpc3Rlbmlyc2Ugw7ZuY2VraSB0ZW1heWEgZMO2bsO8bMO8ci4iLCJZZW5pIHB1YW4gZWZla3RpIEJhbCBLYWJhxJ_EsTogcHVhbiBoYWxrYXPEsSBtdW0gxLHFn8SxxJ_EsW5kYSB5YW5hbiBiaXIga2FiYcSfYSBkw7Zuw7zFn8O8ciwgYWxldmluIHJlbmdpIHZlIHRpdHJlbWVzaSBzaXN0ZW0gc2HEn2zEscSfxLFuxLEgaXpsZXIuIiwiQ2FkxLFsYXIgQmF5cmFtxLEgdGVtYXPEsW5kYSBTaXN0ZW0gRHVydW11IGthcnRsYXLEsW5kYSBrw7zDp8O8ayB5YXJhc2FsYXIgdmFyLCBzYXlmYSBkZcSfacWfdGlyaW5jZSBkZSBiaXIgeWFyYXNhIHPDvHLDvHPDvCB1w6d1cCBrYXlib2x1ci4gSGFyZWtldGkgYXphbHQgYcOnxLFra2VuIHXDp21hemxhci4iLCJZZW5pIEjEsXpsYW5kxLFyIHNheWZhc8SxICjDvGNyZXRzaXopOiBTZW55dHJhIGJpbGdpc2F5YXLEsW7EsSBva3VyLCBpxZ9lIHlhcmFkxLHEn8SxIGJpbGluZW4gdmUgaGVuw7x6IHV5Z3VsYW5tYW3EscWfIGF5YXJsYXLEsSBsaXN0ZWxlci4gU2VuIHNlw6dlcnNpbiwgaGVyIGRlxJ9pxZ9pa2xpayB5ZWRla2xlbmlyIHZlIFdpbmRvd3MndGFuIGdlcmkgb2t1bmFyYWsgZG_En3J1bGFuxLFyLiIsIkjEsXpsYW5kxLFyIMO2bmNlIHZlIHNvbnJhIMO2bMOnw7xtIGfDtnN0ZXJpciwgdXlndWxhbmFuIGF5YXJsYXLEsW4geWVuaWRlbiBiYcWfbGF0bWFkYW4gc29ucmEgZGEgeWVyaW5kZSBvbHVwIG9sbWFkxLHEn8SxbsSxIGtvbnRyb2wgZWRlci4iLCJTZW55dHJhIEludGVsbGlnZW5jZSdhIERlcmluIFRlxZ9oaXMgZWtsZW5kaTogZGlzaywgYmVsbGVrLCBpxZ9sZW1jaSwgc8O8csO8Y8O8IHZlIGFya2EgcGxhbiB5w7xrw7xuw7wgw7Zsw6fDvHAgeWF2YcWfbMSxxJ_EsW4gZW4gb2xhc8SxIG5lZGVuaW5pIGfDtnN0ZXJpci4iLCJBa8SxbGzEsSDDtm5lcmlsZXIgYXJ0xLFrIGHDp8SxayBrYWxhbiBnZXJla3NpeiBzZXJ2aXNsZXJpLCB1eWd1bGFubWFtxLHFnyDDtm5lcmlsZW4gaW5jZSBheWFybGFyxLEgdmUgw7Zsw6fDvGxlbiB5YXZhxZ9sxLFrIG5lZGVuaW5pIGRlIGfDtnN0ZXJpci4iLCJBTUQgZWtyYW4ga2FydMSxIGRlc3RlxJ9pOiBrYXJ0IGRvxJ9ydSB0YW7EsW7EsXIsIGFuYSBwYW5lbGRlIHZlIFRlcm1hbCBQcm9maWwnZGUgc8SxY2FrbMSxaywgZ8O8w6cgdmUga3VsbGFuxLFtIGfDtnN0ZXJpbGlyLiIsIkfDvG5jZWxsZW1lbGVyIHNheWZhc8SxIEFNRCBrYXJ0bGFyZGEgQWRyZW5hbGluIHPDvHLDvG3DvG7DvCBnw7ZzdGVyaXIuIFJYIDQwMC81MDAgdmUgVmVnYSBrYXJ0bGFyIGnDp2luIGVza2kga2FydCBzw7xyw7xjw7wga29sdSBub3R1IGVrbGVuZGkuIiwiRWtyYW4gS2FydMSxIFBlcmZvcm1hbnPEsSduYSBBTUQgUmFkZW9uIGthcnTEsSBla2xlbmRpOiBSZUxpdmUga2F5ZMSxLCBBTUQgdmVyaSB0b3BsYW1hLCBvdG9tYXRpayBnw7xuY2VsbGVtZSBnw7ZyZXZsZXJpIHZlIGHDp8SxbMSxxZ90YSBiYcWfbGFtYSBrYXBhdMSxbGFiaWxpciwgaGVwc2kgeWVkZWtsaS4iLCJBZHJlbmFsaW4gacOnaW4gw7ZuZXJpbGVuIG95dW4gYXlhcmxhcsSxIGxpc3Rlc2kgZWtsZW5kaS4iLCJIQUdTIMO2bmVyaXNpIGFydMSxayBkZXN0ZWtsZW1leWVuIGVrcmFuIGthcnRsYXLEsW5kYSBnw7ZzdGVyaWxtaXlvci4iLCJHYW1lIEJvb3N0ZXIgeWVuaSBSaW90IENsaWVudCfEsSBveXVuIHNhbsSxeW9yZHUsIGTDvHplbHRpbGRpLiIsIkdhbWUgQm9vc3RlciBoaWxlIGtvcnVtYWzEsSBiaXIgc8O8cmXDp3RlIFwia3VydGFybWEgZ2VyZWtsaVwiIHV5YXLEsXPEsW5kYSB0YWvEsWzEsSBrYWzEsXlvcmR1LCBkw7x6ZWx0aWxkaS4iLCJBbnRpdmlyw7xzIGtvcnVtYXPEsSBrYXBhbMSxIHV5YXLEsXPEsSBhcnTEsWsgeW9rIHNhecSxbGFiaWxpci4iLCJTYcSfbMSxayBwdWFuxLFuxLFuIGFya2FzxLFuYSB5ZW5pIGVmZWt0bGVyOiBOYWLEsXosIFBldGVrIHZlIEF0b20uIEfDtnLDvG7DvG0gYXlhcmxhcsSxbmRhbiB2ZSBpbGsga3VydWx1bWRhIHNlw6dpbGViaWxpci4iLCJTYcSfIMO8c3R0ZWtpIGt1bGxhbsSxY8SxIGthcnTEsSB5ZW5pbGVuZGkuIiwiT3RvbWF0aWsgVGVrIFTEsWsgZWtyYW7EsSBzYWRlbGXFn3RpLCBheXLEsW50xLFsYXIgR2VsacWfbWnFnyBheWFybGFyIGFsdMSxbmRhLiIsIlllbmkgaW5jZSBheWFybGFyOiBwZW5jZXJlIGFuaW1hc3lvbmxhcsSxLCBzYXlkYW1sxLFrIGVmZWt0bGVyaSB2ZSBXaW5kb3dzIEFyYW1hJ27EsW4ga2xhc2lrIGRpemlubGVtZXNpLiIsIlRlbGVtZXRyaSBpbmNlIGF5YXLEsSB1eWd1bGFuZMSxxJ_EsSBoYWxkZSB1eWd1bGFubWFkxLEgZ8O2csO8bsO8eW9yZHUsIGTDvHplbHRpbGRpLiIsIkFyYXnDvHogbWV0aW5sZXJpbmRlIGdlcmVrc2l6IG5va3RhbMSxIHZpcmfDvGxsZXIga2FsZMSxcsSxbGTEsS4iLCJBdG9tIGVmZWt0aW5pbiB5w7Zyw7xuZ2VsZXJpIHB1YW4ga2FydMSxbmRhbiB0YcWfxLFwIGtlc2lsaXlvcmR1LCBkw7x6ZWx0aWxkaS4iLCJIxLF6bGFuZMSxciBzYXlmYXPEsW5kYSBiZWxsZWssIHRha8SxbMSxIG1pa3RhciBvbGFyYWsgZ8O2c3RlcmlsaXIgKDE1LjggR0IgeWVyaW5lIDE2IEdCKS4iLCJHYW1lIEJvb3N0ZXIsIGhpbGUga29ydW1hbMSxIGJpciBzw7xyZcOndGUgZ8O8w6cgbW9kdSB2ZSDDp2VraXJkZWsgYXRhbWFzxLEgZ2VyaSB5w7xrbGVuZW1lZGnEn2luZGUgZGUgdGFrxLFsxLEga2FsxLF5b3JkdSwgZMO8emVsdGlsZGkuIEJ1IGF5YXJsYXIgc8O8cmXDpyBrYXBhbsSxbmNhIGtlbmRpbGnEn2luZGVuIHPEsWbEsXJsYW7EsXIuIiwiR8O8dmVubGlrOiBFbGVjdHJvbiA0NC45LjMgZ8O8dmVubGlrIHlhbWFzxLEuIiwiR8O8dmVubGlrOiBnw7xuY2VsbGVtZWxlciBhcnTEsWsgbGlzYW5zdGFuIGF5csSxIGJpciBhbmFodGFybGEgaW16YWxhbsSxeW9yLiIsIkfDvHZlbmxpazogcHJvZ3JhbSBrb2R1IGthcmFydMSxbGFyYWsga29ydW51eW9yLiJdLCJzY2hlbWFWZXJzaW9uIjoxLCJwcm9kdWN0IjoiU2VueXRyYSJ9",
-  "signature": "S2Na2hUfh9w_uf9LyDLJjs-vMmwTG8KPt8fvL77PqbiBGbg4DetFQ1HxUSlR7Kb18xx8XLc-EaAxa-5GeZ6TAQ",
+  "payload": "eyJ2ZXJzaW9uIjoiMi41LjIiLCJjaGFubmVsIjoic3RhYmxlIiwiZG93bmxvYWQiOiJodHRwczovL2dpdGh1Yi5jb20vem9ucmFpaWwvc2VueXRyYS11cGRhdGVzL3JlbGVhc2VzL2Rvd25sb2FkL3YyLjUuMi9TZW55dHJhLVNldHVwLXYyLjUuMi14NjQuZXhlIiwic2hhMjU2IjoiZGRkYzlhMGQ1MGE3NmFhODEzZWI1OWIwNjUxZGY5MDJjNDEwODZkNWNkNzUyYmU0ZTc3ZDRlODU2OWRmYjM0MSIsImNoYW5nZWxvZyI6WyJTZW55dHJhIGhvdGZpeCJdLCJzY2hlbWFWZXJzaW9uIjoxLCJwcm9kdWN0IjoiU2VueXRyYSJ9",
+  "signature": "eyNhjE-7oFM_TZpTFDJiLBoAVmiTeVo3KtjuYhxCvm118_C4oMnZZzKNJP18x2Jp4dJ3BXD3qU17gCN3_zSPCQ",
   "signatures": {
-    "update-2026-10": "0RLYF6dmPzhh9Bs--dFjdKJQsXcoFDhUDOjTVOj-W3nZeI2J6dHkpGIqLZzlMvklSub66cx7LggdLEdkpoV2DA"
+    "update-2026-10": "wvBV8UmjX2cq5ru-n-_-o7kUAFD1ybsJ9nHzkh02K3WBGYErp-b_Ia-Fa9t8Ql3SkSmGEaH-d8EbvhNm6vTMAw"
   }
 }
